@@ -1,2 +1,2 @@
 # Guithub_actions_test
-testing guithub actions to learn how it works
+testing github actions to learn how it works
