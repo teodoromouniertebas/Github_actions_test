@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
 
-name: 04-run-r-script-with-pkgs
+name: 05-saving-results
 
 jobs:
   write-message:
@@ -21,3 +21,11 @@ jobs:
 
       - name: print-message
         run:  Rscript scripts/04-r-script-with-pkgs.R
+
+      - name: commit files
+        run: |
+          git config --local user.name "$GITHUB_ACTOR"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add -A
+          git commit -m "Saving the results" || echo "no changes to commit"
+          git push origin || echo "no changes to commit"
