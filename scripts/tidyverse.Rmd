@@ -1,7 +1,7 @@
 ---
 title: "tidyverse"
 author: "Teodoro Mounier Tebas"
-date: "`r Sys.Date()`"
+date: "`r Sys.time()`"
 output: html_document
 ---
 
