@@ -1,8 +1,8 @@
 on:
   workflow_dispatch:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  "*/5 * * * *"
+  # schedule:
+  #   # * is a special character in YAML so you have to quote this string
+  #   - cron:  "*/5 * * * *"
 
 name: 07-test-tidyverse
 
@@ -21,8 +21,6 @@ jobs:
         with:
           cache-version: 2
           packages:
-            any::rmarkdown
-            any::knitr
             any::tidyverse
             any::quantmod
 
