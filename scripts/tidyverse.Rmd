@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Import des library
 
-```{r echo=FALSE}
+```{r include=FALSE}
 library(quantmod)
 library(tidyverse)
 ```
