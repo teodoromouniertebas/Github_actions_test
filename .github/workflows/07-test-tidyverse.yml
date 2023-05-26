@@ -20,7 +20,7 @@ jobs:
             any::quantmod
 
       - name: print-message
-        run:  Rscript scripts/tidyverse.Rmd
+        run:  Rscript scripts/tidyverse.R
 
       - name: commit files
         run: |
