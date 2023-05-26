@@ -1,0 +1,24 @@
+---
+title: "tidyverse"
+author: "Teodoro Mounier Tebas"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Import des library
+
+```{r}
+library(quantmod)
+library(tidyverse)
+```
+
+## Indices boursiers
+
+```{r}
+getSymbols("AAPL", src="yahoo")
+chartSeries(AAPL, subset="last 6 months", theme=chartTheme("white"))
+```
