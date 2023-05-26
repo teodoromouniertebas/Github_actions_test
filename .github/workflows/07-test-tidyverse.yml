@@ -16,11 +16,12 @@ jobs:
         with:
           cache-version: 2
           packages:
+            any::rmarkdown
             any::tidyverse
             any::quantmod
 
-      - name: print-message
-        run:  Rscript scripts/tidyverse.R
+      - name: render rmd
+        run:  Rscript rmarkdown::render("tidyverse.Rmd")
 
       - name: commit files
         run: |
