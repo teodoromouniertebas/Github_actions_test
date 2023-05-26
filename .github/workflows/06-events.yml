@@ -1,7 +1,13 @@
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "*/4 * * * *"
+  push:
+    branches:
+      - main
 
-name: 05-saving-results
+
+name: 06-events
 
 jobs:
   write-message:
@@ -20,7 +26,7 @@ jobs:
             any::fs
 
       - name: print-message
-        run:  Rscript scripts/04-r-script-with-pkgs.R
+        run:  Rscript scripts/03-r-script.R
 
       - name: commit files
         run: |
