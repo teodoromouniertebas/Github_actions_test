@@ -21,8 +21,6 @@ jobs:
         with:
           cache-version: 2
           packages:
-            any::knitr
-            any::rmarkdown
             any::tidyverse
             any::quantmod
 
