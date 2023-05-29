@@ -23,14 +23,10 @@ jobs:
         uses: quarto-dev/quarto-actions/render@v2
         with:
           to: html # If set, it will be equivalent to `quarto render --to html`
-          path: source-folder
+          path: scripts/tidyverse_quarto.qmd
 
       - name: Publish to Netlify (and render)
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: netlify
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
-
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
