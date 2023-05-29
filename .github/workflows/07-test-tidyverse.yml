@@ -13,6 +13,8 @@ jobs:
   run-rmd-script:
   # 2a - The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
   # 2b - Load repo and install R
     steps:
@@ -44,5 +46,3 @@ jobs:
           git commit -m "Saving the results" || echo "no changes to commit"
           git push origin || echo "no changes to commit"
 
-    env:
-      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
