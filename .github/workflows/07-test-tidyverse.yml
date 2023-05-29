@@ -1,14 +1,11 @@
-# 1 - Events
 on:
   workflow_dispatch:
-  #puch:
-  # branches: main
   schedule:
-   - cron:  "*/15 * * * *"
+    # * is a special character in YAML so you have to quote this string
+    - cron:  "*/5 * * * *"
 
-
-# 2 - Jobs
 name: 07-test-tidyverse
+
 jobs:
   run-rmd-script:
     runs-on: ubuntu-latest
@@ -20,22 +17,20 @@ jobs:
         with:
           use-public-rspm: true
 
-
-      - name: install packages
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           cache-version: 2
           packages:
+            any::rmarkdown
+            any::knitr
             any::tidyverse
             any::quantmod
-
 
       - name: render rmd
         run: rmarkdown::render("scripts/tidyverse.Rmd")
         shell: Rscript {0}
 
-
-  - name: commit files
+      - name: commit files
         run: |
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
